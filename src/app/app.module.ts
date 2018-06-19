@@ -10,6 +10,11 @@ import { HeaderComponent } from './header/header.component';
 import {MaterializeModule} from 'angular2-materialize';
 import {TypingAnimationModule} from "angular-typing-animation";
 
+import { BioComponent } from './bio/bio.component';
+import {NgStickyDirective} from "ng-sticky";
+
+
+
 const appRoutes: Routes = [
   {path: '', component: HomeComponent }
 
@@ -20,13 +25,16 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     MenuComponent,
-    HeaderComponent
+    HeaderComponent,
+    BioComponent,
+    NgStickyDirective
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     MaterializeModule,
     TypingAnimationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,15 @@
 <section class="header" style="background-image: url('../../assets/img/header.jpg'); width: 100%">
   <app-menu></app-menu>
   <div class="row">
-    <div class="header-title center-align">
-      <h1 typingAnimation [typeSpeed]="50" [condition]="start" [startDelay]="1000"
-          (complete)="onTypingAnimationComplete()">Soy Christian David Dorado,</h1>
+    <div class="typed_wrap header-title center-align">
+      <h1 typingAnimation [typeSpeed]="50" [condition]="start" [startDelay]="1000" [hideCursorOnComplete]="true"
+          (complete)="onTypingAnimationComplete()">Mi nombre es Christian David Dorado,</h1>
+
     </div>
   </div>
   <div class="row">
-    <div class="center-align">
-    <h4 style="color: #FFFFFF" (complete)="onComplete()" typingAnimation cursorBlinking=true [typeSpeed]="50" [condition]="start2" [startDelay]="1000">
-        {{stringInterpolation}}
-    </h4>
+    <div class="typed_wrap center-align skills-string">
+      <h4><p class="typing-element"></p></h4>
     </div>
   </div>
 
