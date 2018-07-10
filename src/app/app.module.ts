@@ -12,8 +12,16 @@ import {TypingAnimationModule} from "angular-typing-animation";
 
 import { BioComponent } from './bio/bio.component';
 import {NgStickyDirective} from "ng-sticky";
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import { CompaniesComponent } from './companies/companies.component';
+import { FooterComponent } from './footer/footer.component';
 
 
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent }
@@ -27,13 +35,23 @@ const appRoutes: Routes = [
     MenuComponent,
     HeaderComponent,
     BioComponent,
-    NgStickyDirective
+    NgStickyDirective,
+    CompaniesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     MaterializeModule,
-    TypingAnimationModule
+    TypingAnimationModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
 
   ],
   providers: [],
